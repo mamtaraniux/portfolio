@@ -2,154 +2,434 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mamta Rani | UX/UI Designer</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <header class="site-header">
+    <a href="#home" class="brand" data-route="home">Mamta Rani</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#home" data-route="home">Home</a>
+      <a href="#work" data-route="work">Work</a>
+      <a href="#about" data-route="about">About</a>
+      <a href="#toolkit" data-route="toolkit">Toolkit</a>
+      <a href="#contact" data-route="contact">Contact</a>
+    </nav>
+  </header>
 
-<!-- HERO / LANDING -->
-<section class="hero">
-  <img src="profile.jpg" class="profile" alt="Mamta">
+  <main>
+    <section class="view home-view is-active" id="home" data-view="home">
+      <div class="home-content">
+       <h1 class="hero-title">
+  Turning<br>
+  <span class="gradient-text">complexity</span><br>
+  into clarity<span class="dot">.</span>
+</h1>
+        <p class="subtitle">Mamta Rani · UX/UI Designer</p>
+        <p class="intro">Designing products that feel simple, clear, and effortless to use.</p>
+        <div class="actions">
+          <a href="#work" class="button primary" data-route="work">View Work</a>
+          <a href="cv.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">View CV</a>
+        </div>
+      </div>
+    </section>
 
-  <h1>Mamta Rani</h1>
-  <p class="subtitle">UX/UI Designer based in Berlin</p>
+    <section class="view" id="work" data-view="work">
+      <div class="section-heading">
+        <span>Work</span>
+        <h2>Selected Projects</h2>
+      </div>
 
-  <div class="hero-buttons">
-    <div class="hero-buttons">
-  <a href="https://www.behance.net/mamtarani27" target="_blank">Portfolio</a>
-  <a href="https://www.linkedin.com/in/mamta-rani-a8b059231/details/experience/" target="_blank">LinkedIn</a>
-  <a href="javascript:void(0)" onclick="toggleTools()">Tools</a>
-  <a href="javascript:void(0)" onclick="toggleAbout()">About</a>
-  <a href="#contact">Contact</a>
-  <a href="cv.pdf" target="_blank" class="btn">CV</a>
-</div>
-</div>
+      <div class="carousel-container">
+        <button class="carousel-nav carousel-nav-prev" aria-label="Previous project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="carousel-wrapper">
+          <div class="projects-carousel">
+            <article class="project-card" data-index="0">
+              <div class="project-card-media">
+                <img src="saas.jpg" alt="Claribench dashboard design">
+              </div>
+              <div class="project-card-body">
+                <div>
+                  <span>Featured Project</span>
+                  <h3>Claribench</h3>
+                  <p>A business analytics product refined around clarity, data confidence, and premium visual hierarchy.</p>
+                  <div class="project-card-tags">
+                    <span class="project-tag">SaaS</span>
+                    <span class="project-tag">Analytics</span>
+                    <span class="project-tag">AI</span>
+                  </div>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://www.behance.net/gallery/241882891/ClariBench-AI" target="_blank" rel="noopener noreferrer" class="button primary">Case Study</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="1">
+              <div class="project-card-media">
+                <img src="cafe15.png" alt="Cafe website design">
+              </div>
+              <div class="project-card-body">
+                <div>
+                  <span>Featured Project</span>
+                  <h3>Cafe Website</h3>
+                  <p>A warm cafe ordering experience with clearer navigation and a more confident journey.</p>
+                  <div class="project-card-tags">
+                    <span class="project-tag">Branding</span>
+                    <span class="project-tag">E-commerce</span>
+                    <span class="project-tag">UX Strategy</span>
+                  </div>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://mamtaranide-maker.github.io/cafe-website/" target="_blank" rel="noopener noreferrer" class="button primary">Live Website</a>
+                  <a href="https://www.behance.net/gallery/246536781/Cafe-Website-UXUI-Design-Frontend-Development" target="_blank" rel="noopener noreferrer" class="button secondary">Case Study</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="2">
+              <div class="project-card-media">
+                <img src="quitepluse.jpg" alt="QuietPulse app design">
+              </div>
+              <div class="project-card-body">
+                <div>
+                  <span>Featured Project</span>
+                  <h3>QuietPulse</h3>
+                  <p>A calm meditation app that reduces decision overload and supports a gentle daily ritual.</p>
+                  <div class="project-card-tags">
+                    <span class="project-tag">Wellness</span>
+                    <span class="project-tag">Mobile UX</span>
+                    <span class="project-tag">Mindfulness</span>
+                  </div>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://www.behance.net/gallery/240424149/QuitePulse-Mindfulness-Breathing-App" target="_blank" rel="noopener noreferrer" class="button primary">Case Study</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <button class="carousel-nav carousel-nav-next" aria-label="Next project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="carousel-indicators">
+        <button class="carousel-dot active" data-slide="0" aria-label="Go to project 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Go to project 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Go to project 3"></button>
+          
   
-</section>
-</section> <!-- HERO END -->
+    </section>
 
-<!-- TOOLS (correct place) -->
-<section id="tools" class="tools">
-  <div class="tools-box">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>Figma</span>
-    <span>FigJam</span>
-    <span>Adobe Photoshop</span>
-    <span>Notion AI</span>
-  </div>
+    <section class="view detail-view" id="project-quietpulse" data-view="project-quietpulse">
+      <a href="#work" class="back-link" data-route="work">Back to Work</a>
+      <img class="detail-image" src="quitepluse.jpg" alt="QuietPulse app design">
+      <div class="detail-layout">
+        <div>
+          <span>Case Study</span>
+          <h2>QuietPulse</h2>
+          <p>A focused meditation experience built around calm, clarity, and fewer decisions.</p>
+        </div>
+        <div class="detail-notes">
+          <section>
+            <h3>Challenge</h3>
+            <p>Users felt overwhelmed by too many meditation options and struggled to start quickly.</p>
+          </section>
+          <section>
+            <h3>Approach</h3>
+            <p>I simplified the flow, reduced decisions, and created a quieter visual hierarchy.</p>
+          </section>
+          <section>
+            <h3>Outcome</h3>
+            <p>The app feels calmer, easier to enter, and more supportive for daily practice.</p>
+          </section>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="view detail-view" id="project-cafe" data-view="project-cafe">
+      <a href="#work" class="back-link" data-route="work">Back to Work</a>
+      <img class="detail-image" src="cafe15.png" alt="Cafe website design">
+      <div class="detail-layout">
+        <div>
+          <span>Case Study</span>
+          <h2>Cafe Website</h2>
+          <p>A warm cafe website focused on browsing, ordering, and clear next steps.</p>
+        </div>
+        <div class="detail-notes">
+          <section>
+            <h3>Challenge</h3>
+            <p>The menu and ordering path needed clearer structure for quick customer decisions.</p>
+          </section>
+          <section>
+            <h3>Approach</h3>
+            <p>I simplified navigation and shaped the content around scanning and ordering.</p>
+          </section>
+          <section>
+            <h3>Outcome</h3>
+            <p>The final experience feels easier to browse and more direct for cafe visitors.</p>
+          </section>
+        </div>
+      </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-  <p>
-    I am a UX/UI Designer based in Berlin, focused on designing simple and intuitive digital experiences.
-    I enjoy transforming complex ideas into clear and user-friendly interfaces.
-    With a background in fashion design and running my own business, I bring creativity and practical thinking into my design work.
-  </p>
-</section>
+    <section class="view detail-view" id="project-claribench" data-view="project-claribench">
+      <a href="#work" class="back-link" data-route="work">Back to Work</a>
+      <img class="detail-image" src="saas.jpg" alt="Claribench dashboard design">
+      <div class="detail-layout">
+        <div>
+          <span>Case Study</span>
+          <h2>Claribench</h2>
+          <p>An analytics product refined to make complex insights feel premium, calm, and easy to act on.</p>
+        </div>
+        <div class="detail-notes">
+          <section>
+            <h3>Challenge</h3>
+            <p>Users needed fast access to analytics without clutter or confusing data overload.</p>
+          </section>
+          <section>
+            <h3>Approach</h3>
+            <p>I simplified the dashboard hierarchy, prioritized key metrics, and sharpened the visual system.</p>
+          </section>
+          <section>
+            <h3>Outcome</h3>
+            <p>The final experience feels more premium, easier to scan, and better aligned with business goals.</p>
+          </section>
+        </div>
+      </div>
+    </section>
 
-<section id="why" class="why">
-  <h2>Why Me</h2>
-  <p>
-    I design with clarity, empathy, and purpose. My goal is not just to make things look good,
-    but to create meaningful user experiences that solve real problems.
-  </p>
-</section>
+    <section class="view" id="about" data-view="about">
+      <div class="about-layout">
+        <div class="about-image-wrap">
+          <img class="about-image" src="profile1.jpg" alt="Mamta Rani portrait">
+        </div>
+        <div class="about-copy">
+          <span>About</span>
+          <h2>Designing products that feel simple, useful, and human.</h2>
+          <p>I’m a UX/UI designer focused on crafting thoughtful, user-centered product experiences. I simplify complexity through clear structure, intuitive flows, and a refined visual language.
 
-<section class="work-title">
-  <h2>My Work</h2>
-  <p>Selected projects showcasing UX thinking and visual design</p>
-</section>
+With a background in fashion design, entrepreneurship, and marketing, I bring a strong sense of aesthetics, user understanding, and business thinking into my work.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- WORK (🔥 GALLERY STYLE) -->
-<section id="work" class="work">
+    <section class="view" id="toolkit" data-view="toolkit">
+      <div class="section-heading">
+        <span>Toolkit</span>
+        <h2>Tools I Use</h2>
+      </div>
+      <div class="tool-grid">
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8a4 4 0 0 1 0 8H8z"/><path d="M8 12h8a4 4 0 0 1 0 8H8z"/><path d="M8 4a4 4 0 0 0 0 8"/><path d="M8 12a4 4 0 0 0 0 8"/></svg>
+          <span>Figma</span>
+        </div>
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5z"/><path d="M8 15c2 1 5 1 7-1"/><path d="M9 9h2"/><path d="M13 9h2"/></svg>
+          <span>Adobe</span>
+        </div>
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18 12 4l8 14"/><path d="M8 14h8"/></svg>
+          <span>Illustrator</span>
+        </div>
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/></svg>
+          <span>Wireframes</span>
+        </div>
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><path d="M8 4v16"/><path d="M16 4v16"/></svg>
+          <span>Design Systems</span>
+        </div>
+        <div class="tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-4 5 4 5"/><path d="m16 7 4 5-4 5"/><path d="m14 4-4 16"/></svg>
+          <span>HTML/CSS</span>
+        </div>
+      </div>
+    </section>
 
-  <!-- Cafe -->
-<div class="work-card">
-  <img src="cafe15.png">
+    <section class="view contact-view" id="contact" data-view="contact">
+      <div>
+        <span>Contact</span>
+        <h2>Let's work together</h2>
+        <p class="intro">Available for UX/UI design roles, product design projects, and creative collaborations.</p>
+        <div class="contact-links">
+          <a class="contact-card" href="mailto:mamta.rani.de@gmail.com" aria-label="Email Mamta">
+            <div class="contact-icon" aria-hidden="true">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png">
+            </div>
+            <span class="contact-label">Email</span>
+            <strong>mamta.rani.de@gmail.com</strong>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/mamta-rani-a8b059231/" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile">
+            <div class="contact-icon" aria-hidden="true">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png">
+            </div>
+            <span class="contact-label">LinkedIn</span>
+            <strong>View profile</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <div class="card-info">
-    <h3>Cafe Website</h3>
-    <p>Restaurant • UX/UI • Frontend</p>
+  <script>
+    const views = document.querySelectorAll("[data-view]");
+    const links = document.querySelectorAll("[data-route]");
 
-    <div class="buttons">
-      <a href="https://www.behance.net/gallery/246536781/Cafe-Website-UXUI-Design-Frontend-Development" target="_blank">Behance</a>
-      <a href="https://mamtaranide-maker.github.io/cafe-website/" target="_blank">Live</a>
-    </div>
-  </div>
-</div>
+    function showView(route) {
+      const activeRoute = route || "home";
+      const activeView = document.querySelector(`[data-view="${activeRoute}"]`) || document.querySelector('[data-view="home"]');
 
-  <!-- SaaS -->
-<div class="work-card">
-  <img src="saas.jpg">
+      views.forEach((view) => {
+        view.classList.toggle("is-active", view === activeView);
+      });
 
-  <div class="card-info">
-    <h3>SaaS Dashboard</h3>
-    <p>AI • Analytics • UX/UI</p>
+      links.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.route === activeRoute);
+      });
 
-    <div class="buttons">
-      <a href="https://www.behance.net/gallery/241882891/ClariBench-AI" target="_blank">Behance</a>
-      <a href="https://www.figma.com/design/hKR5863GaSkTEv2IV1RDp3/Saas-Projekt-Mamta-Rani" target="_blank">Figma</a>
-    </div>
-  </div>
-</div>
+      window.scrollTo(0, 0);
+    }
 
- <!-- PupWell -->
-<div class="work-card">
-  <img src="pup.png">
+    function routeFromHash() {
+      return window.location.hash.replace("#", "") || "home";
+    }
 
-  <div class="card-info">
-    <h3>PupWell App</h3>
-    <p>Pet Care • Mobile App • UX/UI</p>
+    window.addEventListener("hashchange", () => showView(routeFromHash()));
+    showView(routeFromHash());
 
-    <div class="buttons">
-      <a href="https://www.behance.net/gallery/240428449/PetWell" target="_blank">Case Study</a>
-      <a href="https://www.figma.com/design/LIKjC0vXK03rCVhSWL2KM7/Untitled" target="_blank">Figma</a>
-    </div>
-  </div>
-</div>
+    // Premium 3D Tilt Effect for Project Cards
+    if (window.matchMedia("(hover: hover)").matches) {
+      const cards = document.querySelectorAll(".project-card");
+      
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateXValue = ((y - centerY) / centerY) * 8;
+          const rotateYValue = ((x - centerX) / centerX) * -8;
+          
+          const mouseXPercent = (x / rect.width) * 100;
+          const mouseYPercent = (y / rect.height) * 100;
+          
+          if (card.hasAttribute("data-active") && card.getAttribute("data-active") === "true") {
+            card.style.setProperty("--rotate-x", `${rotateXValue}deg`);
+            card.style.setProperty("--rotate-y", `${rotateYValue}deg`);
+            card.style.setProperty("--mouse-x", `${mouseXPercent}%`);
+            card.style.setProperty("--mouse-y", `${mouseYPercent}%`);
+          }
+        });
+        
+        card.addEventListener("mouseleave", () => {
+          card.style.setProperty("--rotate-x", "0deg");
+          card.style.setProperty("--rotate-y", "0deg");
+          card.style.setProperty("--mouse-x", "50%");
+          card.style.setProperty("--mouse-y", "50%");
+        });
+      });
+    }
 
-  <!-- QuitePulse -->
-<div class="work-card">
-  <img src="calm.png">
+    // 3D Carousel Navigation
+    const carousel = document.querySelector(".projects-carousel");
+    const cards = document.querySelectorAll(".project-card");
+    const prevBtn = document.querySelector(".carousel-nav-prev");
+    const nextBtn = document.querySelector(".carousel-nav-next");
+    const dots = document.querySelectorAll(".carousel-dot");
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
 
-  <div class="card-info">
-    <h3>QuitePulse App</h3>
-    <p>Wellness • Mindfulness • UX/UI</p>
+    function updateCarousel() {
+      cards.forEach((card, index) => {
+        const offset = index - currentIndex;
+        const wrappedOffset = offset > totalCards / 2 ? offset - totalCards : offset < -totalCards / 2 ? offset + totalCards : offset;
+        const absOffset = Math.abs(wrappedOffset);
+        const cardAngle = wrappedOffset * 15;
+        const isActive = index === currentIndex;
 
-    <div class="buttons">
-      <a href="https://www.behance.net/gallery/240424149/QuitePulse-Mindfulness-Breathing-App" target="_blank">Case Study</a>
-      <a href="https://www.figma.com/design/x2DUOJrSR5vCKgqCgMvhjY/Untitled" target="_blank">Figma</a>
-    </div>
-  </div>
-</div>
+        card.style.setProperty("--offset", wrappedOffset);
+        card.style.setProperty("--abs-offset", absOffset);
+        card.style.setProperty("--card-angle", `${cardAngle}deg`);
+        card.style.setProperty("--card-scale", isActive ? "1" : "0.86");
+        card.style.setProperty("--card-opacity", isActive ? "1" : "0.38");
+        card.style.setProperty("--card-z", isActive ? "2" : "1");
 
-</section>
+        card.setAttribute("data-active", isActive);
+      });
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Let's Connect</h2>
-  <p>Email: <a href="mailto:mamta.rani.de@gmail.com">mamta.rani.de@gmail.com</a></p>
-</section>
-<section class="open">
-  <h2>Open to Work</h2>
-  <p>I am currently available for UX/UI design opportunities.</p>
-</section>
-<script>
-function toggleAbout() {
-  const about = document.getElementById("about");
-  about.classList.toggle("active");
-}
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
 
-function toggleTools() {
-  const tools = document.getElementById("tools");
-  tools.classList.toggle("active");
-}
-</script>
+      // Update main carousel rotation
+      carousel.style.transform = "none";
+    }
 
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalCards;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index % totalCards;
+      updateCarousel();
+    }
+
+    prevBtn.addEventListener("click", prevSlide);
+    nextBtn.addEventListener("click", nextSlide);
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goToSlide(parseInt(dot.getAttribute("data-slide")));
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      const activeView = document.querySelector(".view.is-active");
+      if (activeView && activeView.id === "work") {
+        if (e.key === "ArrowLeft") {
+          prevSlide();
+        } else if (e.key === "ArrowRight") {
+          nextSlide();
+        }
+      }
+    });
+
+    // Initialize carousel
+    updateCarousel();
+  </script>
 </body>
 </html>
+.view#about .about-copy {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: 28px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
