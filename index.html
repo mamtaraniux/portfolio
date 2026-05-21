@@ -11,9 +11,9 @@
     <a href="#home" class="brand" data-route="home">Mamta Rani</a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#home" data-route="home">Home</a>
-      <a href="#work" data-route="work">Work</a>
       <a href="#about" data-route="about">About</a>
       <a href="#toolkit" data-route="toolkit">Toolkit</a>
+      <a href="#work" data-route="work">Work</a>
       <a href="#contact" data-route="contact">Contact</a>
     </nav>
   </header>
@@ -70,6 +70,7 @@
                 </div>
               </div>
             </article>
+            
 
             <article class="project-card" data-index="1">
               <div class="project-card-media">
@@ -309,6 +310,7 @@ With a background in fashion design, entrepreneurship, and marketing, I bring a 
     showView(routeFromHash());
 
     // Premium 3D Tilt Effect for Project Cards
+    
     if (window.matchMedia("(hover: hover)").matches) {
       const cards = document.querySelectorAll(".project-card");
       
@@ -421,15 +423,3 @@ With a background in fashion design, entrepreneurship, and marketing, I bring a 
   </script>
 </body>
 </html>
-.view#about .about-copy {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  padding: 28px;
-  border-radius: 20px;
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-}
