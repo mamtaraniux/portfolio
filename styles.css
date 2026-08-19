@@ -441,6 +441,14 @@ h3 {
   isolation: isolate;
   perspective: 1200px;
   overflow: visible;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-container.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .carousel-nav {
@@ -458,6 +466,12 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   z-index: 10;
   box-shadow: 0 18px 40px rgba(222, 160, 78, 0.24);
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.carousel-nav:hover {
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 22px 48px rgba(222, 160, 78, 0.32);
 }
 
 .nav-links a[data-route="contact"] {
@@ -516,21 +530,22 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   --rotate-y: 0deg;
   --mouse-x: 50%;
   --mouse-y: 50%;
+  --project-card-width: min(620px, calc(100vw - 220px));
   transform:
     translate(-50%, -50%)
-    translateX(calc(var(--offset, 0) * 320px))
+    translateX(calc(var(--offset, 0) * (var(--project-card-width) + 32px)))
     translateZ(calc(120px - (var(--abs-offset, 0) * 80px)))
     rotateX(var(--rotate-x, 0deg))
     rotateY(calc(var(--card-angle, 0deg) * -1 + var(--rotate-y, 0deg)))
-    scale(var(--card-scale, 0.86));
-  opacity: var(--card-opacity, 0.38);
-  pointer-events: none;
+    scale(var(--card-scale, 1));
+  opacity: var(--card-opacity, 1);
+  pointer-events: auto;
   filter: none;
   transform-style: preserve-3d;
   transform-origin: center center;
   backface-visibility: hidden;
   will-change: transform, opacity, filter;
-  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.72s ease, filter 0.72s ease, box-shadow 0.72s ease, border-color 0.72s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   z-index: var(--card-z, 1);
 }
 .project-card {
@@ -592,12 +607,6 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   pointer-events: none;
   border-radius: 32px;
   z-index: 1;
-}
-
-.project-card:not([data-active="true"]) .project-card-actions {
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
 }
 
 .project-card-media {
@@ -806,7 +815,7 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
 
 .view#about .about-layout {
   display: grid;
-  grid-template-columns: minmax(300px, 44%) minmax(0, 540px);
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 1fr);
   align-items: center;
   justify-content: center;
   gap: clamp(44px, 5vw, 72px);
@@ -832,7 +841,13 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   overflow: hidden;
   border-radius: 18px;
   align-self: center;
-  box-shadow: none;
+  box-shadow: 0 24px 60px rgba(45, 38, 25, 0.22), 0 8px 20px rgba(45, 38, 25, 0.12);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+.view#about .about-image-wrap:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 76px rgba(45, 38, 25, 0.28), 0 12px 28px rgba(45, 38, 25, 0.16);
 }
 
 .view#about img {
@@ -844,16 +859,19 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   width: 100%;
   aspect-ratio: 4 / 5;
   min-height: 0;
-  height: clamp(420px, 38vw, 510px);
-  max-height: 510px;
+  height: auto;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 25%;
   border-radius: inherit;
   box-shadow: none;
   background: #cbc6bf;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.85s ease 0.12s, transform 0.85s ease 0.12s;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.85s ease 0.12s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.view#about .about-image-wrap:hover .about-layout img {
+  transform: translateY(0) scale(1.06);
 }
 
 .view#about .about-layout::before {
@@ -868,16 +886,15 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   width: 100%;
   aspect-ratio: 4 / 5;
   min-height: 0;
-  height: clamp(420px, 38vw, 510px);
-  max-height: 510px;
+  height: auto;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 25%;
   border-radius: inherit;
   box-shadow: none;
   background: #cbc6bf;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.85s ease 0.12s, transform 0.85s ease 0.12s;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.85s ease 0.12s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .view#about.is-active .about-layout img {
@@ -1066,6 +1083,35 @@ background: linear-gradient(135deg, rgba(210,180,140,0.25), rgba(156,123,90,0.15
   background: rgba(212, 163, 115, 0.82);
   transform: translateY(-50%);
 }
+
+.toolkit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.toolkit-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #2c2523, #3a302c);
+  border: 1px solid rgba(212, 163, 115, 0.3);
+  color: #D4A373;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+}
+
+.toolkit-tag:hover {
+  background: linear-gradient(145deg, #3b2f28, #5a463a);
+  border-color: rgba(212, 163, 115, 0.5);
+  box-shadow: 0 10px 24px rgba(212, 163, 115, 0.16);
+  transform: translateY(-2px);
+}
+
 #toolkit h2 {
   font-size: clamp(48px, 7vw, 84px);
   font-weight: 820;
@@ -1340,9 +1386,9 @@ background: linear-gradient(145deg, #3b2f28, #5a463a);
   }
 
   .view#about .about-layout {
-    grid-template-columns: 1fr;
-    gap: 26px;
-    padding: 26px;
+    grid-template-columns: minmax(140px, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
     border-radius: 24px;
   }
 
@@ -2168,6 +2214,8 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   transform: translateY(18px) scale(0.98);
   opacity: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: opacity 0.28s ease, transform 0.28s ease;
   z-index: 1;
 }
@@ -2185,6 +2233,7 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 3;
   width: 44px;
   height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -2199,14 +2248,24 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 .overview-modal-inner {
   position: relative;
   z-index: 1;
-  max-height: 100%;
-  overflow: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .overview-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: grid;
   gap: 12px;
   margin-bottom: 24px;
+  padding-bottom: 12px;
+  background: rgba(12, 16, 34, 0.98);
+  box-shadow: 0 12px 16px -8px rgba(4, 6, 14, 0.55);
 }
 
 .overview-modal-eyebrow {
@@ -2227,10 +2286,11 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 
 .overview-modal-body {
   display: grid;
-  gap: 22px;
+  gap: 28px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 16px;
   line-height: 1.8;
+  text-align: left;
 }
 
 .overview-modal-body h3 {
@@ -2240,7 +2300,12 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 }
 
 .overview-modal-body p,
-.overview-modal-body ul {
+.overview-modal-body ul,
+.overview-modal-body figcaption {
+  margin: 0;
+}
+
+.overview-modal-body figure {
   margin: 0;
 }
 
@@ -2250,6 +2315,38 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 
 .overview-modal-body li {
   margin-bottom: 8px;
+}
+
+.overview-modal-figure {
+  display: grid;
+  gap: 14px;
+}
+
+.overview-modal-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+}
+
+.overview-modal-visual-section {
+  display: grid;
+  gap: 14px;
+}
+
+.overview-modal-visual-section p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.overview-modal-figure--hero {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.overview-modal-figure--sub {
+  width: 100%;
 }
 
 @media (max-width: 720px) {
@@ -2305,7 +2402,8 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   grid-template-rows: 1fr;
   align-items: stretch;
   gap: 0;
-  width: min(620px, calc(100vw - 220px));
+  width: var(--project-card-width, min(620px, calc(100vw - 220px)));
+  height: 500px;
   min-height: 500px;
   padding: 0;
   overflow: hidden;
@@ -2328,13 +2426,13 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 }
 
 .project-card[data-active="true"] {
-  --card-scale: 1.02 !important;
+  --card-scale: 1 !important;
   border-color: rgba(226, 210, 180, 0.32);
   box-shadow: 0 42px 110px rgba(0, 0, 0, 0.32), 0 18px 46px rgba(74, 56, 36, 0.16);
 }
 
 .project-card:not([data-active="true"]) {
-  --card-scale: 0.74 !important;
+  --card-scale: 0.92 !important;
 }
 
 .project-card-media {
@@ -2390,6 +2488,15 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border-bottom: none;
+}
+
+.project-card-body .project-eyebrow {
+  margin: 0 0 6px;
+  color: rgba(254, 244, 230, 0.55);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-card-body h3 {
@@ -2501,13 +2608,13 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   }
 
   .project-card-body {
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
-    padding: 18px;
+    padding: 22px;
   }
 
   .project-card-body h3 {
@@ -2519,25 +2626,16 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   }
 }
 
-@media (max-width: 520px) {
-  .project-card-actions {
-    flex-direction: column;
-  }
-
-  .project-card-actions .button {
-    width: 100%;
-  }
-}
-
 /* === Project Card Buttons: clean, compact, premium styling === */
 /* Scoped to .project-card to avoid touching other button groups */
 .project-card .project-card-actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   margin-top: 0;
-  width: auto;
+  width: 100%;
   padding: 0;
   opacity: 1;
   transform: none;
@@ -2548,9 +2646,9 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto; /* do not stretch full width */
-  min-width: 140px; /* consistent compact width */
-  padding: 8px 14px; /* slimmer */
+  flex: 1 1 140px; /* share the row evenly, never below a comfortable pill size */
+  min-width: 140px;
+  padding: 10px 16px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 550;
@@ -2577,4 +2675,102 @@ linear-gradient(90deg, #f5e6c8 0%, #d4b27c 35%, #b8965a 65%, #f1e2c4 100%);
 .project-card .project-card-actions .button:hover {
   transform: translateY(-2px);
   filter: brightness(1.03);
+}
+
+/* STEP 1 — ClariBench AI (data-index="1") ONLY. Cafe No.15, QuietPulse, */
+/* and DaddyDo are untouched pending review. */
+/* Switched from stacked/overlapping (image behind, text box on top via */
+/* absolute positioning) to two true non-overlapping regions: the text */
+/* box keeps its own natural, content-driven height — same padding, same */
+/* content, so it computes to essentially the same height DaddyDo's does */
+/* — and the image fills exactly whatever space is left above it. Since */
+/* both are real flex siblings now (not absolute-positioned on top of */
+/* each other), there is no overlap possible by construction. */
+.project-card[data-index="1"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card[data-index="1"] .project-card-media {
+  position: relative;
+  inset: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 32px 32px 0 0;
+}
+
+.project-card[data-index="1"] .project-card-body {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 0 0 auto;
+  height: 224px; /* estimated match to DaddyDo's natural (unset) typo-card height */
+}
+
+.project-card[data-index="1"] .project-card-media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* STEP 2 — Cafe No.15 (data-index="2") ONLY. Same technique as */
+/* ClariBench above: non-overlapping flex layout instead of stacked */
+/* absolute positioning. QuietPulse and DaddyDo remain untouched. */
+.project-card[data-index="2"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card[data-index="2"] .project-card-media {
+  position: relative;
+  inset: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 32px 32px 0 0;
+}
+
+.project-card[data-index="2"] .project-card-body {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 0 0 auto;
+  height: 224px; /* estimated match to DaddyDo's natural (unset) typo-card height */
+}
+
+.project-card[data-index="2"] .project-card-media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* STEP 3 — QuietPulse (data-index="3") ONLY. Same technique as */
+/* ClariBench and Cafe No.15 above. DaddyDo remains untouched. */
+.project-card[data-index="3"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card[data-index="3"] .project-card-media {
+  position: relative;
+  inset: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 32px 32px 0 0;
+}
+
+.project-card[data-index="3"] .project-card-body {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 0 0 auto;
+  height: 224px; /* estimated match to DaddyDo's natural (unset) typo-card height */
+}
+
+.project-card[data-index="3"] .project-card-media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% center;
 }
