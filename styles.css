@@ -1349,16 +1349,15 @@ background: linear-gradient(145deg, #3b2f28, #5a463a);
   }
 
   .site-header {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 14px;
     width: calc(100% - 32px);
-    height: 118px;
+    height: 88px;
   }
 
   .nav-links {
-    width: 100%;
     gap: 18px;
     overflow-x: auto;
   }
