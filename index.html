@@ -52,6 +52,24 @@
           <div class="projects-carousel">
             <article class="project-card" data-index="0">
               <div class="project-card-media">
+                <img src="Daddydo.png" alt="DaddyDo app design">
+              </div>
+              <div class="project-card-body">
+                <div>
+                  <p class="project-eyebrow">DaddyDo &mdash; Freelance UX Engagement</p>
+                  <h3>Clarity Over Clutter</h3>
+                  <p>Redesigning clarity into a card that tried to say too much at once.</p>
+                  <p class="project-meta">Freelance UX &bull; Information Hierarchy &bull; Live Product</p>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://daddy-do.com/" target="_blank" rel="noopener noreferrer" class="button primary">View Live</a>
+                  <button type="button" class="button secondary overview-open-btn" data-project="daddydo" aria-controls="overview-modal" aria-expanded="false">View Overview</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="1">
+              <div class="project-card-media">
                 <img src="saas.jpg" alt="Claribench dashboard design">
               </div>
               <div class="project-card-body">
@@ -68,7 +86,7 @@
             </article>
             
 
-            <article class="project-card" data-index="1">
+            <article class="project-card" data-index="2">
               <div class="project-card-media">
                 <img src="cafe15.png" alt="Cafe website design">
               </div>
@@ -85,7 +103,7 @@
               </div>
             </article>
 
-            <article class="project-card" data-index="2">
+            <article class="project-card" data-index="3">
               <div class="project-card-media">
                 <img src="quitepluse.jpg" alt="QuietPulse app design">
               </div>
@@ -115,6 +133,7 @@
         <button class="carousel-dot active" data-slide="0" aria-label="Go to project 1"></button>
         <button class="carousel-dot" data-slide="1" aria-label="Go to project 2"></button>
         <button class="carousel-dot" data-slide="2" aria-label="Go to project 3"></button>
+        <button class="carousel-dot" data-slide="3" aria-label="Go to project 4"></button>
           
   
     </section>
@@ -245,6 +264,7 @@ Now, I bring that same thinking into digital products, blending creativity, stru
               <li>Reusable components</li>
               <li>Consistency across screens</li>
               <li>Scalable design foundations</li>
+              <li>Component libraries with Radix & shadcn</li>
             </ul>
           </div>
         </div>
@@ -253,12 +273,25 @@ Now, I bring that same thinking into digital products, blending creativity, stru
           <div class="tool-content">
             <span>AI-Powered Workflow</span>
             <ul>
-              <li>ChatGPT, Claude, Lovable, Codex</li>
+              <li>Claude Code, ChatGPT, Lovable, Codex</li>
               <li>Faster ideation and iteration</li>
               <li>Bridging design and development</li>
+              <li>Shipping design directly to production code</li>
             </ul>
           </div>
         </div>
+      </div>
+
+      <div class="toolkit-tags">
+        <span class="toolkit-tag">Figma</span>
+        <span class="toolkit-tag">Claude Code</span>
+        <span class="toolkit-tag">HTML</span>
+        <span class="toolkit-tag">CSS</span>
+        <span class="toolkit-tag">JavaScript</span>
+        <span class="toolkit-tag">GitHub</span>
+        <span class="toolkit-tag">Radix/shadcn</span>
+        <span class="toolkit-tag">Wireframes</span>
+        <span class="toolkit-tag">Adobe Illustrator</span>
       </div>
     </section>
 
@@ -298,7 +331,7 @@ Now, I bring that same thinking into digital products, blending creativity, stru
       <button class="overview-modal-close" type="button" aria-label="Close overview">×</button>
       <div class="overview-modal-inner">
         <div class="overview-modal-header">
-          <span class="overview-modal-eyebrow">Project Overview</span>
+          <span class="overview-modal-eyebrow">Case study</span>
           <h2 id="overview-modal-title">Project Overview</h2>
         </div>
         <div class="overview-modal-body"></div>
@@ -325,6 +358,39 @@ Now, I bring that same thinking into digital products, blending creativity, stru
     }
 
     const overviewData = {
+      daddydo: {
+        title: "From Cluttered to Clear",
+        sections: [
+          { heading: "Brief", content: "DaddyDo's event card packed too much into one view - child name, date, action label, title, content, links, info boxes, a completion button, icons, and top-right actions all competing for attention. Parents couldn't instantly tell what the card was about, what action was expected, or what mattered most." },
+          { heading: "Role", content: "Engaged directly by founder, I audited the live production app (not just the original Figma file) and mapped every element into three clear roles - action, context, and supporting information - while keeping the product's existing visual identity recognizable rather than starting over. Beyond static screens, I guided the interaction behavior itself - specifying which elements should be clickable, how action states should respond, and how the card should feel to use, not just look at." },
+          { heading: "Work", content: "I restructured the information hierarchy so the primary action is instantly visible, context (who/when) is scannable at a glance, and supporting details step back visually - reducing cognitive load without redesigning the whole app." },
+          { heading: "Where It Stands", content: "Directions delivered to the founder for implementation into the live product - a freelance UX engagement focused on real-world clarity and usability, not just visual polish." },
+        ],
+        process: {
+          heading: "Exploration & Iteration",
+          content: "Multiple layout directions were tested with the founder to simplify hierarchy, spacing, and interaction behavior before selecting the strongest solution.",
+          image: {
+            src: "process.png",
+            alt: "DaddyDo process: multiple layout directions explored before the final design",
+          },
+        },
+        componentKit: {
+          heading: "Interaction & Component Kit",
+          content: "The final direction was supported by a consistent component system including logo usage, colours, reusable cards, and interaction patterns for implementation.",
+          image: {
+            src: "Daddydo iterations.png",
+            alt: "DaddyDo component kit: logo, colours, reusable cards, and interaction patterns",
+          },
+        },
+        finalDirection: {
+          heading: "The Final Direction",
+          content: "The resolved design - action isolated as the single clear affordance, context scannable at a glance, and supporting details layered back, all delivered within the product's existing visual language.",
+          image: {
+            src: "Frames.png",
+            alt: "DaddyDo final direction: the resolved card design",
+          },
+        },
+      },
       claribench: {
         title: "Project Overview",
         sections: [
@@ -367,14 +433,40 @@ Now, I bring that same thinking into digital products, blending creativity, stru
       }
 
       const projectInfo = overviewData[projectKey];
-      overviewModalBody.innerHTML = projectInfo.sections
+      const overviewModalTitleEl = overviewModal.querySelector("#overview-modal-title");
+      if (overviewModalTitleEl) {
+        overviewModalTitleEl.textContent = projectInfo.title || "Project Overview";
+      }
+      const renderVisualSection = (visual) => visual ? `
+        <section class="overview-modal-visual-section">
+          <h3>${visual.heading}</h3>
+          <p>${visual.content}</p>
+          <figure class="overview-modal-figure overview-modal-figure--sub">
+            <img src="${visual.image.src}" alt="${visual.image.alt}" loading="lazy">
+          </figure>
+        </section>
+      ` : "";
+      const imagesHtml = (projectInfo.images || [])
+        .map((image) => `
+          <figure class="overview-modal-figure">
+            <img src="${image.src}" alt="${image.alt}" loading="lazy">
+            <figcaption>${image.caption}</figcaption>
+          </figure>
+        `)
+        .join("");
+      const sectionsHtml = projectInfo.sections
         .map((section) => `
           <section>
             <h3>${section.heading}</h3>
-            <p>${section.content}</p>
+            ${section.content ? `<p>${section.content}</p>` : ""}
           </section>
         `)
         .join("");
+      overviewModalBody.innerHTML = renderVisualSection(projectInfo.process)
+        + renderVisualSection(projectInfo.componentKit)
+        + renderVisualSection(projectInfo.finalDirection)
+        + imagesHtml
+        + sectionsHtml;
 
       overviewModal.setAttribute("aria-hidden", "false");
       overviewModal.hidden = false;
@@ -517,8 +609,8 @@ Now, I bring that same thinking into digital products, blending creativity, stru
         card.style.setProperty("--offset", wrappedOffset);
         card.style.setProperty("--abs-offset", absOffset);
         card.style.setProperty("--card-angle", `${cardAngle}deg`);
-        card.style.setProperty("--card-scale", isActive ? "1" : "0.88");
-        card.style.setProperty("--card-opacity", isActive ? "1" : "0.68");
+        card.style.setProperty("--card-scale", isActive ? "1" : "0.92");
+        card.style.setProperty("--card-opacity", isActive ? "1" : "0.85");
         card.style.setProperty("--card-z", isActive ? "3" : "1");
 
         card.setAttribute("data-active", isActive);
@@ -570,6 +662,26 @@ Now, I bring that same thinking into digital products, blending creativity, stru
 
     // Initialize carousel
     updateCarousel();
+
+    // Scrollytelling entrance: reveal the carousel with a cinematic
+    // fade/slide-up the first time the Work section scrolls into view.
+    const carouselContainer = document.querySelector(".carousel-container");
+    if (carouselContainer && "IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              carouselContainer.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      revealObserver.observe(carouselContainer);
+    } else if (carouselContainer) {
+      carouselContainer.classList.add("is-revealed");
+    }
   </script>
 </body>
 </html>
